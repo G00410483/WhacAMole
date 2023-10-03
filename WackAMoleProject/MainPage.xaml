@@ -1,0 +1,196 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WackAMoleProject.MainPage">
+
+    <Grid x:Name="GridPageContent">
+        <Image Source="bg.jpg"/>
+
+        <StackLayout x:Name="MainStack" IsVisible="False">
+
+            <Label x:Name="LblTimer" 
+                   Text="0"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   Margin="0, 40, 0, 0"
+                   FontFamily="Roboto"
+                   HorizontalOptions="Center" VerticalOptions="Start"
+                   IsVisible="True"/>
+
+            <Grid x:Name="GridGame3x3"
+                  HeightRequest="300" WidthRequest="300"
+                  VerticalOptions="Center" HorizontalOptions="Center" 
+                  IsVisible="true">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="mole.png"
+                             x:Name="mole3"
+                             Grid.Row="1" Grid.Column="1"
+                             HeightRequest="60" WidthRequest="60"
+                             Clicked="ImageButton_Clicked"
+                             IsVisible="True"/>
+            </Grid>
+
+            <Grid x:Name="GridGame5x5"
+                  HeightRequest="300" WidthRequest="300"
+                  VerticalOptions="Center" HorizontalOptions="Center" 
+                  IsVisible="false">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+
+                <ImageButton Source="mole.png"
+                             x:Name="mole5"
+                             Grid.Row="2" Grid.Column="2"
+                             HeightRequest="40" WidthRequest="40"
+                             Clicked="ImageButton_Clicked"
+                             IsVisible="True"/>
+            </Grid>
+        </StackLayout>
+
+            <ImageButton x:Name="BtnStart" 
+                     Source="start.png"
+                     HorizontalOptions="Center" VerticalOptions="Center"
+                     WidthRequest="150" HeightRequest="100"
+                     Margin="0, 0, 0, 30"
+                     IsVisible="True"
+                     Clicked="BtnStart_Clicked"/>
+
+            <ImageButton x:Name="BtnRestart"
+                    Source="reset.png" 
+                    WidthRequest="120" HeightRequest="80"
+                    HorizontalOptions="End" VerticalOptions="End"
+                    Margin="20"
+                    Clicked="BtnRestart_Clicked"
+                    IsVisible="False"/>
+        
+            <Image Source="score.png"
+               x:Name="ScoreImg"
+               WidthRequest="120" HeightRequest="70"
+               HorizontalOptions="Start" VerticalOptions="End"
+               Margin="20"
+               IsVisible="False"/>
+
+            <Label x:Name="LblScore" 
+                   Text="0"
+                   TextColor="White"
+                   FontSize="Large"
+                   FontAttributes="Bold"
+                   FontFamily="Roboto"
+                   Margin="0, 0, 400, 35" 
+                   HorizontalOptions="Center" VerticalOptions="End"
+                   IsVisible="False"/>
+     
+            <Image x:Name="WarningImg"
+               Source="warning.png"
+               HorizontalOptions="Center" VerticalOptions="Center"
+               Margin="670, 0, 0, 320"
+               IsVisible="False"
+               WidthRequest="90" HeightRequest="90"/>
+        
+             <Label x:Name="LblMiss" 
+                   Text="0"
+                   TextColor="White"
+                   FontSize="Medium"
+                   FontAttributes="Bold"
+                   FontFamily="Roboto"
+                   Margin="670, 0, 0, 220"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   IsVisible="False"/>
+      
+            <Button x:Name="BtnChangeGrid"
+                    Text="5 x 5"
+                    HorizontalOptions="Center" VerticalOptions="End"
+                    Clicked="BtnChangeGrid_Clicked"
+                    FontFamily="Roboto"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    BackgroundColor="DodgerBlue"
+                    IsVisible="True"
+                    Margin="15, 15, 15, 150"
+                    WidthRequest="70" HeightRequest="40"
+                    BorderColor="Black"
+                    BorderWidth="2"/>
+
+        <StackLayout x:Name="ContinueStack"
+                     WidthRequest="300" HeightRequest="400"
+                     IsVisible="False">
+
+            <Label x:Name="LblContinue"
+                       Text="Continue?"
+                       FontFamily="Roboto"
+                       FontSize="Large"
+                       FontAttributes="Bold"
+                       TextColor="DodgerBlue"                   
+                       HorizontalOptions="Center" VerticalOptions="Center"
+                       CharacterSpacing="2"
+                       Margin="0, 100, 0, 0"/>
+
+            <Button x:Name="BtnYes"
+                    Text="Yes"
+                    Margin="7"
+                    FontFamily="Roboto"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    BackgroundColor="DodgerBlue"
+                    CharacterSpacing="2"
+                    Clicked="BtnYes_Clicked"
+                    WidthRequest="70" HeightRequest="40"
+                    BorderColor="Black"
+                    BorderWidth="2"/>
+
+            <Button x:Name="BtnNo"
+                    Text ="No"
+                    Margin="7"
+                    FontFamily="Roboto"
+                    FontAttributes="Bold"
+                    TextColor="Black"
+                    HorizontalOptions="Center" VerticalOptions="Center"
+                    BackgroundColor="DodgerBlue"
+                    CharacterSpacing="2"
+                    Clicked="BtnNo_Clicked"
+                    WidthRequest="70" HeightRequest="40"
+                    BorderColor="Black"
+                    BorderWidth="2"/>
+        </StackLayout>
+
+            <Image Source="victory.png"
+                   x:Name="VictoryImg"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   HeightRequest="250" WidthRequest="400"
+                   Margin="0, 0, 0, 200"
+                   IsVisible="False"/>
+
+        <Image Source="gameover.png"
+                   x:Name="GameOver"
+                   HorizontalOptions="Center" VerticalOptions="Center"
+                   HeightRequest="100" WidthRequest="200"
+                   Margin="0, 100, 0, 0"
+                   IsVisible="False"/>
+    </Grid>
+</ContentPage>
